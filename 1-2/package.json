@@ -1,0 +1,14 @@
+{
+  "name": "ndjs-1-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "date-fns": "^2.29.3",
+    "yargs": "^17.6.2"
+  },
+  "bin": {
+    "ndjs12-date": "date.js",
+    "ndjs12-guess": "guess-the-number.js"
+  }
+}
