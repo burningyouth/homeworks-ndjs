@@ -27,7 +27,7 @@ const parseLog = (log) => {
 
   lines.forEach((line) => {
     if (line === "" || line[0] === "N") return;
-    if (line.includes("[RIGHT]")) {
+    if (line.startsWith("[RIGHT]")) {
       result.total++;
       result.right++;
     }
@@ -35,8 +35,9 @@ const parseLog = (log) => {
       result.total++;
       result.wrong++;
     }
-    if (line.split(": ")[1] === "head") result.headAnswers++;
-    else if (line.split(": ")[1] === "tail") result.tailAnswers++;
+    const answer = line.split(": ")[1];
+    if (answer === "head") result.headAnswers++;
+    else if (answer === "tail") result.tailAnswers++;
     else result.unknownAnswers++;
   });
 
@@ -54,18 +55,17 @@ readableStream
     log += chunk;
   })
   .on("end", () => {
-    const result = parseLog(log);
-    console.log(`Total games: ${result.total}`);
-    console.log(`Right answers: ${result.right}`);
-    console.log(`Wrong answers: ${result.wrong}`);
-    console.log(
-      `Win/lose: ${Math.round((result.right / result.wrong) * 100)}%`
-    );
+    const { total, wrong, right, headAnswers, tailAnswers, unknownAnswers } =
+      parseLog(log);
+    console.log(`Total games: ${total}`);
+    console.log(`Right answers: ${right}`);
+    console.log(`Wrong answers: ${wrong}`);
+    console.log(`Win/lose: ${Math.round((right / wrong) * 100)}%`);
     console.log(
       `The most common answer is "${maxCommonAnswer(
-        result.headAnswers,
-        result.tailAnswers,
-        result.unknownAnswers
+        headAnswers,
+        tailAnswers,
+        unknownAnswers
       )}"`
     );
   });
