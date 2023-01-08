@@ -1,0 +1,13 @@
+{
+  "name": "ndjs-1-4",
+  "version": "1.0.0",
+  "main": "heads-n-tails.js",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^17.6.2"
+  },
+  "bin": {
+    "ndjs14-game": "heads-n-tails.js",
+    "ndjs14-analyze": "heads-n-tails-analyze.js"
+  }
+}

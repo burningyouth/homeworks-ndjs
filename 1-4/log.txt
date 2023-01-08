@@ -1,0 +1,25 @@
+New game session started. Debug: false
+[WRONG] Answer provided: unknown
+[WRONG] Answer provided: unknown
+[WRONG] Answer provided: head
+[WRONG] Answer provided: tail
+[RIGHT] Answer provided: tail
+New game session started. Debug: false
+[WRONG] Answer provided: unknown
+[WRONG] Answer provided: unknown
+[RIGHT] Answer provided: head
+[RIGHT] Answer provided: head
+
+New game session started. Debug: false
+[RIGHT] Answer provided: tail
+[WRONG] Answer provided: unknown
+[WRONG] Answer provided: unknown
+
+New game session started. Debug: false
+[RIGHT] Answer provided: head
+[WRONG] Answer provided: tail
+[WRONG] Answer provided: unknown
+[WRONG] Answer provided: unknown
+[RIGHT] Answer provided: head
+[RIGHT] Answer provided: tail
+[WRONG] Answer provided: tail
