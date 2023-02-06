@@ -1,0 +1,46 @@
+1. docker pull busybox
+2. docker run --name pinger -d busybox ping -c 7 netology.ru
+> 8e953c7a856cdcc9b317f71dbb58b705c12c3902829c91074c20f703077cd44a
+3. docker ps -a
+> CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS     NAMES
+  8d6e3ef1877d   busybox   "ping -c 7 netology.…"   3 seconds ago   Up 3 seconds             pinger
+4. docker logs pinger
+> PING netology.ru (188.114.98.233): 56 data bytes
+  64 bytes from 188.114.98.233: seq=0 ttl=37 time=73.802 ms
+  64 bytes from 188.114.98.233: seq=1 ttl=37 time=42.919 ms
+  64 bytes from 188.114.98.233: seq=2 ttl=37 time=44.190 ms
+  64 bytes from 188.114.98.233: seq=3 ttl=37 time=44.395 ms
+  64 bytes from 188.114.98.233: seq=4 ttl=37 time=45.457 ms
+  64 bytes from 188.114.98.233: seq=5 ttl=37 time=45.340 ms
+  64 bytes from 188.114.98.233: seq=6 ttl=37 time=42.735 ms
+  
+  --- netology.ru ping statistics ---
+  7 packets transmitted, 7 packets received, 0% packet loss
+  round-trip min/avg/max = 42.735/48.405/73.802 ms
+5. docker start pinger
+> pinger
+6. docker ps -a
+> CONTAINER ID   IMAGE     COMMAND                  CREATED              STATUS                      PORTS     NAMES
+  dafe071d13a8   busybox   "ping -c 7 netology.…"   About a minute ago   Exited (0) 30 seconds ago             pinger
+7. docker logs pinger
+> 7 packets transmitted, 7 packets received, 0% packet loss
+  round-trip min/avg/max = 42.735/48.405/73.802 ms
+  PING netology.ru (188.114.98.233): 56 data bytes
+  64 bytes from 188.114.98.233: seq=0 ttl=37 time=41.906 ms
+  64 bytes from 188.114.98.233: seq=1 ttl=37 time=43.769 ms
+  64 bytes from 188.114.98.233: seq=2 ttl=37 time=44.631 ms
+  64 bytes from 188.114.98.233: seq=3 ttl=37 time=43.622 ms
+  64 bytes from 188.114.98.233: seq=4 ttl=37 time=41.359 ms
+  64 bytes from 188.114.98.233: seq=5 ttl=37 time=43.523 ms
+  64 bytes from 188.114.98.233: seq=6 ttl=37 time=44.666 ms
+
+  --- netology.ru ping statistics ---
+  7 packets transmitted, 7 packets received, 0% packet loss
+  round-trip min/avg/max = 41.359/43.353/44.666 ms
+8. Не совсем понял что от меня надо? Для определения количества запросов есть какая-то команда? Или просто  просто в логах что написано?
+9. docker rm pinger
+10.  docker rmi busybox
+> Untagged: busybox:latest
+  Untagged: busybox@sha256:7b3ccabffc97de872a30dfd234fd972a66d247c8cfc69b0550f276481852627c
+  Deleted: sha256:abaa813f94fdeebd3b8e6aeea861ab474a5c4724d16f1158755ff1e3a4fde8b0
+  Deleted: sha256:869e6058ea58994b7c023f0f0a80f6dbb672ffc1cc61ef6c272f8dd573a76cc9
