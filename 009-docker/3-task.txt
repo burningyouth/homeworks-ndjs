@@ -1,0 +1,13 @@
+1. docker pull node:15.14
+2. docker run -d --tty --name first_node -v `pwd`/009-docker/data:/var/first/data node:15.14
+3. docker run -d --tty --name second_node -v `pwd`/009-docker/data:/var/second/data node:15.14
+4. docker exec -it first_node /bin/sh
+  echo "test" >/var/first/data/test.txt
+5. echo "test" >009-docker/data/test2.txt
+6. docker exec -it second_node /bin/sh
+  cd /var/second/data 
+  ls
+> test.txt  test2.txt
+7. docker stop `docker ps -a -q`
+8. docker rm `docker ps -a -q`
+9. docker rmi node:15.14
